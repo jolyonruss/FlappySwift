@@ -17,6 +17,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var movePipesAndRemove = SKAction()
     let birdBitMaskCategory: UInt32 = 0x1 << 0;
     let pipeBitMaskCategory: UInt32 = 0x1 << 1;
+    var sparkles = SKTexture()
+    var burstEmitter = SKEmitterNode()
     
     override func didMoveToView(view: SKView) {
         // setup physics
@@ -109,7 +111,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ground.physicsBody.dynamic = false
         self.addChild(ground)
         
-        
+        sparkles = SKTexture(imageNamed: "bird-01")
+        burstEmitter = SKEmitterNode()
+        burstEmitter.particleTexture = sparkles
+        burstEmitter.position = CGPointMake(200, 200)
+        burstEmitter.particleBirthRate = 20
+        burstEmitter.numParticlesToEmit = 200;
+        self.addChild(burstEmitter)
     }
     
     func spawnPipes() {
@@ -173,6 +181,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // bodyA is our pipe, destroy it!
         var pipe = contact.bodyA as SKPhysicsBody
         pipe.node.removeFromParent()
+        
+        // Add the particles here
     }
     
     override func update(currentTime: CFTimeInterval) {

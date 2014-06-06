@@ -15,6 +15,8 @@
 		4374520B193D163800654986 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4374520A193D163800654986 /* Images.xcassets */; };
 		43745217193D163800654986 /* FlappyBirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43745216193D163800654986 /* FlappyBirdTests.swift */; };
 		437A3DBA193D326A00909BA0 /* bird.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 437A3DB9193D326A00909BA0 /* bird.atlas */; };
+		A681F40B1941DF7700FCBA0E /* BokehParticle1.sks in Resources */ = {isa = PBXBuildFile; fileRef = A681F4091941DF7700FCBA0E /* BokehParticle1.sks */; };
+		A681F40C1941DF7700FCBA0E /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = A681F40A1941DF7700FCBA0E /* bokeh.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		43745215193D163800654986 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43745216193D163800654986 /* FlappyBirdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlappyBirdTests.swift; sourceTree = "<group>"; };
 		437A3DB9193D326A00909BA0 /* bird.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bird.atlas; sourceTree = "<group>"; };
+		A681F4091941DF7700FCBA0E /* BokehParticle1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BokehParticle1.sks; sourceTree = "<group>"; };
+		A681F40A1941DF7700FCBA0E /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 				437451FF193D163700654986 /* AppDelegate.swift */,
 				43745201193D163700654986 /* GameScene.sks */,
 				43745203193D163800654986 /* GameScene.swift */,
+				A681F4091941DF7700FCBA0E /* BokehParticle1.sks */,
+				A681F40A1941DF7700FCBA0E /* bokeh.png */,
 				43745205193D163800654986 /* GameViewController.swift */,
 				43745207193D163800654986 /* Main.storyboard */,
 				4374520A193D163800654986 /* Images.xcassets */,
@@ -202,6 +208,8 @@
 				43745202193D163700654986 /* GameScene.sks in Resources */,
 				437A3DBA193D326A00909BA0 /* bird.atlas in Resources */,
 				43745209193D163800654986 /* Main.storyboard in Resources */,
+				A681F40B1941DF7700FCBA0E /* BokehParticle1.sks in Resources */,
+				A681F40C1941DF7700FCBA0E /* bokeh.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
