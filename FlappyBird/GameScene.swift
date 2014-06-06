@@ -17,8 +17,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var movePipesAndRemove = SKAction()
     let birdBitMaskCategory: UInt32 = 0x1 << 0;
     let pipeBitMaskCategory: UInt32 = 0x1 << 1;
-    var sparkles = SKTexture()
-    var burstEmitter = SKEmitterNode()
     
     override func didMoveToView(view: SKView) {
         // setup physics
@@ -110,14 +108,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ground.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(self.frame.size.width, groundTexture.size().height * 2.0))
         ground.physicsBody.dynamic = false
         self.addChild(ground)
-        
-        sparkles = SKTexture(imageNamed: "bird-01")
-        burstEmitter = SKEmitterNode()
-        burstEmitter.particleTexture = sparkles
-        burstEmitter.position = CGPointMake(200, 200)
-        burstEmitter.particleBirthRate = 20
-        burstEmitter.numParticlesToEmit = 200;
-        self.addChild(burstEmitter)
     }
     
     func spawnPipes() {
@@ -149,6 +139,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         pipePair.runAction(movePipesAndRemove);
         self.addChild(pipePair)
+    }
+    
+    func emitParticles() {
+        var burstEmitter = SKEmitterNode()
+        burstEmitter.position = bird.position
+        burstEmitter.particleBirthRate = 160
+        burstEmitter.numParticlesToEmit = 40
+        burstEmitter.particleLifetime = 0.6
+        burstEmitter.particleLifetimeRange = 0
+        burstEmitter.emissionAngle = 77.7
+        burstEmitter.emissionAngleRange = 360
+        burstEmitter.particleSpeed = 120
+        burstEmitter.particleSpeedRange = 60
+        burstEmitter.particleAlpha = 1
+        burstEmitter.particleAlphaRange = 0
+        burstEmitter.particleRotation = 0
+        burstEmitter.particleRotationRange = 360
+        burstEmitter.particleRotationSpeed = 1.14
+        burstEmitter.particleColor = UIColor.redColor()
+        burstEmitter.particleSize = CGSize(width: 25, height: 25)
+        burstEmitter.particleScale = 0.5
+        burstEmitter.particleScaleRange = 1.0
+        
+        self.addChild(burstEmitter)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -183,6 +197,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         pipe.node.removeFromParent()
         
         // Add the particles here
+        self.emitParticles()
     }
     
     override func update(currentTime: CFTimeInterval) {
