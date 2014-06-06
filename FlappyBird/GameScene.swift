@@ -8,17 +8,22 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     var bird = SKSpriteNode()
     var skyColor = SKColor()
     var verticalPipeGap = 150.0
     var pipeTextureUp = SKTexture()
     var pipeTextureDown = SKTexture()
     var movePipesAndRemove = SKAction()
+    let birdBitMaskCategory: UInt32 = 0x1 << 0;
+    let pipeBitMaskCategory: UInt32 = 0x1 << 1;
     
     override func didMoveToView(view: SKView) {
         // setup physics
         self.physicsWorld.gravity = CGVectorMake( 0.0, -5.0 )
+
+        // setup contact delegate
+        self.physicsWorld.contactDelegate = self
         
         // setup background color
         skyColor = SKColor(red: 81.0/255.0, green: 192.0/255.0, blue: 201.0/255.0, alpha: 1.0)
@@ -122,6 +127,7 @@ class GameScene: SKScene {
         
         pipeDown.physicsBody = SKPhysicsBody(rectangleOfSize: pipeDown.size)
         pipeDown.physicsBody.dynamic = false
+        pipeDown.physicsBody.categoryBitMask = pipeBitMaskCategory
         pipePair.addChild(pipeDown)
         
         var pipeUp = SKSpriteNode(texture: pipeTextureUp)
@@ -130,6 +136,7 @@ class GameScene: SKScene {
         
         pipeUp.physicsBody = SKPhysicsBody(rectangleOfSize: pipeUp.size)
         pipeUp.physicsBody.dynamic = false
+        pipeUp.physicsBody.categoryBitMask = pipeBitMaskCategory
         pipePair.addChild(pipeUp)
         
         pipePair.runAction(movePipesAndRemove);
@@ -144,7 +151,10 @@ class GameScene: SKScene {
             
             bird.physicsBody.velocity = CGVectorMake(0, 0)
             bird.physicsBody.applyImpulse(CGVectorMake(0, 30))
-            
+            bird.physicsBody.categoryBitMask = birdBitMaskCategory
+            bird.physicsBody.usesPreciseCollisionDetection = true
+            bird.physicsBody.collisionBitMask = birdBitMaskCategory | pipeBitMaskCategory
+            bird.physicsBody.contactTestBitMask = birdBitMaskCategory | pipeBitMaskCategory
         }
     }
     
@@ -158,6 +168,12 @@ class GameScene: SKScene {
         }
     }
     
+    // implement the SKPhysicsContactDelegate method to handle contact
+    func didBeginContact(contact: SKPhysicsContact) {
+        // bodyA is our pipe, destroy it!
+        var pipe = contact.bodyA as SKPhysicsBody
+        pipe.node.removeFromParent()
+    }
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
