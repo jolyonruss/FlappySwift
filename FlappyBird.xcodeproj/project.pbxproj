@@ -17,6 +17,8 @@
 		437A3DBA193D326A00909BA0 /* bird.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 437A3DB9193D326A00909BA0 /* bird.atlas */; };
 		A681F40B1941DF7700FCBA0E /* BokehParticle1.sks in Resources */ = {isa = PBXBuildFile; fileRef = A681F4091941DF7700FCBA0E /* BokehParticle1.sks */; };
 		A681F40C1941DF7700FCBA0E /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = A681F40A1941DF7700FCBA0E /* bokeh.png */; };
+		A681F40F194233F200FCBA0E /* SparkParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = A681F40D194233F200FCBA0E /* SparkParticle.sks */; };
+		A681F410194233F200FCBA0E /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = A681F40E194233F200FCBA0E /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		437A3DB9193D326A00909BA0 /* bird.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bird.atlas; sourceTree = "<group>"; };
 		A681F4091941DF7700FCBA0E /* BokehParticle1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BokehParticle1.sks; sourceTree = "<group>"; };
 		A681F40A1941DF7700FCBA0E /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
+		A681F40D194233F200FCBA0E /* SparkParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SparkParticle.sks; sourceTree = "<group>"; };
+		A681F40E194233F200FCBA0E /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,8 @@
 				4374520A193D163800654986 /* Images.xcassets */,
 				437A3DB9193D326A00909BA0 /* bird.atlas */,
 				437451FD193D163700654986 /* Supporting Files */,
+				A681F40D194233F200FCBA0E /* SparkParticle.sks */,
+				A681F40E194233F200FCBA0E /* spark.png */,
 			);
 			path = FlappyBird;
 			sourceTree = "<group>";
@@ -204,10 +210,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A681F40F194233F200FCBA0E /* SparkParticle.sks in Resources */,
 				4374520B193D163800654986 /* Images.xcassets in Resources */,
 				43745202193D163700654986 /* GameScene.sks in Resources */,
 				437A3DBA193D326A00909BA0 /* bird.atlas in Resources */,
 				43745209193D163800654986 /* Main.storyboard in Resources */,
+				A681F410194233F200FCBA0E /* spark.png in Resources */,
 				A681F40B1941DF7700FCBA0E /* BokehParticle1.sks in Resources */,
 				A681F40C1941DF7700FCBA0E /* bokeh.png in Resources */,
 			);
